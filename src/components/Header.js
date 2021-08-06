@@ -5,7 +5,7 @@ import { createTheme } from '@material-ui/core';
 import { MenuItem } from '@material-ui/core';
 import categories from '../data/category.js'
 
-const Header = (setCategory, category) => {
+const Header = ({ setCategory, category }) => {
 
     const darkTheme = createTheme({
         palette: {
@@ -25,9 +25,10 @@ const Header = (setCategory, category) => {
             <TextField
                 id="standard-select-currency"
                 select
+                value={category}
                 label="Select"
                 helperText="Please select your currency"
-                // onChange={(e) => setCategory(e.target.value)}
+                onChange={(e) => setCategory(e.target.value)}
             >
             {categories.map((option) => (
               <MenuItem key={option.label} value={option.label}>
@@ -44,4 +45,4 @@ const Header = (setCategory, category) => {
     )
 }
 
-export default Header
+export default Header;
